@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><display xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/sunapsis/display.xsd">
+	<individualDisplay>
+		<set label="Other Logged Information">
+			<dataObject reference="jbCustomFields3" view="multi" width="625" height="350"/>
+		</set>
+	</individualDisplay>
+	
+	<domCodeDisplay>
+	</domCodeDisplay>
+	<generalCodesDisplay>
+		<set label="TS Customizations | Agent Configuration">
+			<dataObject reference="codeTSAgent" view="multi" width="600" height="700"/>
+			<dataObject reference="codeTSAgentContactType" view="multi" width="600" height="300"/>
+			<dataObject reference="configTSAgentContact" view="multi" width="700" height="500"/>
+		</set>
+	</generalCodesDisplay>
+</display>

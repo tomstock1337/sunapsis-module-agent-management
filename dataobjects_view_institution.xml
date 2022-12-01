@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/sunapsis/dataobjects.xsd">
+	<dataObject name="viewTSAgent" label="View Agent Information" module="sunapsis">
+		<menu/>
+		<description><![CDATA[
+			This is a list of detailed agent information for each student
+		]]></description>
+		<primaryKey/>
+		<foreignKey dataObject="jbInternational" key="idnumber"/>
+		<datums>
+			<datum key="idnumber" label=" " type="integer" display="false" />
+			<datum key="description" label="Agency Name" type="string" length="150" />
+			<datum key="website" label="Website" type="string" length="150" />
+			<datum key="source" label="Source" type="string" length="300" />
+			<datum key="PrimaryCountry" label="Primary Country" type="string" length="100" >
+				<reference dataObject="viewCodeCompleteCountryList" valueKey = "code" displayKey="description"/>
+			</datum>
+			<datum key="PrimaryRegion" label="Primary Region" type="string" length="100" />
+			<datum key="SecondaryCountry" label="Secondary Country" type="string" length="100" >
+				<reference dataObject="viewCodeCompleteCountryList" valueKey = "code" displayKey="description"/>
+			</datum>
+			<datum key="SecondaryRegion" label="Secondary Region" type="string" length="100" />
+			<datum key="primaryPhone" label="Primary Phone" type="string" length="50" />
+			<datum key="secondaryPhone" label="Secondary Phone" type="string" length="50" />
+			<datum key="primaryEmail" label="PrimaryEmail" type="string" length="50" />
+			<datum key="secondaryEmail" label="SecondaryEmail" type="string" length="50" />
+			<datum key="fax" label="Fax" type="string" length="50" />
+			<datum key="isActiveFlag" label="Is Active" type="boolean"/>
+			<datum key="address1" label="Address 1" type="string" length="50" />
+			<datum key="address2" label="Address 2" type="string" length="50" />
+			<datum key="city" label="City" type="string" length="50" />
+			<datum key="state" label="State" type="string" length="50" />
+			<datum key="postal" label="Postal" type="string" length="50" />
+			<datum key="countryCode" label="Country Code" type="string" length="5" >
+				<reference dataObject="viewCodeCompleteCountryList" valueKey = "code" displayKey="description"/>
+			</datum>
+			<datum key="notes" label="Notes" type="memo" />
+			<datum key="username" label="Last Edited By" type="string" length="20" >
+				<reference dataObject="viewCodeIOfficeUsers" valueKey="code" displayKey="description" />
+			</datum>
+			<datum key="datestamp" label="Last Updated" type="datestamp" />
+			<datum key="pfirstname" label="Primary Contact First Name" type="string" length="50" />
+			<datum key="plastname" label="Primary Contact Last Name" type="string" length="50" />
+			<datum key="pPrimaryPhone" label="Primary Contact Primary Phone" type="string" length="50" />
+			<datum key="pSecondaryPhone" label="Primary Contact Secondary Phone" type="string" length="50" />
+			<datum key="pPrimaryEmail" label="Primary Contact Primary Email" type="string" length="50" />
+			<datum key="pSecondaryEmail" label="Primary Contact Secondary Email" type="string" length="50" />
+			<datum key="pFax" label="pFax" type="string" length="50" />
+		</datums>
+		<constraints/>
+	</dataObject>                                                    
+</data>

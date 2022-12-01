@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/sunapsis/dataobjects.xsd">
+	<dataObject name="configTSAgentContact" label="Agent Contact" module="sunapsis">
+		<menu type="tree">%agentKey% | %lastname%, %firstname% (%agentContactTypeKey%)</menu>
+		<description><![CDATA[
+			This lists the codes for agents used
+			by the institution.
+		]]></description>
+		<primaryKey>recnum</primaryKey>
+		<foreignKey dataObject="configTSAgentContact" key="recnum"/>
+		<datums>
+			<datum key="recnum" label=" " type="integer" display="false" />
+			<datum key="agentKey" label="Agency" type="string" length="5" sort="asc">
+				<reference dataObject="codeTSAgent" valueKey="code" displayKey="description" />
+			</datum>
+			<datum key="agentContactTypeKey" label="Contact Type" type="string" length="5" >
+				<reference dataObject="codeTSAgentContactType" valueKey="code" displayKey="description" />
+			</datum>
+			<datum key="firstname" label="First Name" type="string" length="50" />
+			<datum key="lastname" label="Last Name" type="string" length="50" sort="asc"/>
+			<datum key="primaryPhone" label="Primary phone" type="string" length="50" />
+			<datum key="secondaryPhone" label="Secondary Phone" type="string" length="50" />
+			<datum key="primaryEmail" label="Primary Email" type="string" length="50" />
+			<datum key="secondaryEmail" label="Secondary Email" type="string" length="50" />
+			<datum key="fax" label="Fax" type="string" length="50" />
+		</datums>
+		<constraints/>
+	</dataObject>
+</data>

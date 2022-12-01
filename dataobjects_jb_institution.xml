@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/sunapsis/dataobjects.xsd">
+	<dataObject name="jbCustomFields3" label="Agent Information" module="sunapsis">
+		<menu type="list">%customField1%</menu>
+		<description><![CDATA[
+			This lists the codes for agents used
+			by the institution.
+		]]></description>
+		<primaryKey>recnum</primaryKey>
+		<foreignKey dataObject="jbInternational" key="idnumber"/>
+		<datums>
+			<datum key="customField1" label="Agency" type="string" length="5" sort="asc" data="required">
+				<reference dataObject="codeTSAgent" valueKey="code" displayKey="description" />
+			</datum>
+			<datum key="customField2" label="Amount Paid" type="double" />
+			<datum key="customField3" label="Date of Payment" type="date" />
+			<datum key="customField5" label="Notes" type="memo" />
+			<datum key="customField4" label="Updated By" type="label" />
+			<datum key="datestamp" label="Last Updated" type="datestamp"/>
+			<datum key="recnum" label=" " type="integer"/>
+			<datum key="idnumber" label=" " type="integer"/>
+		</datums>
+		<constraints>
+			<constraint type="AssignUsernameConstraint" key="customField4"/>
+		</constraints>
+	</dataObject>
+</data>

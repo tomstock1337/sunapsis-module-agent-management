@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/sunapsis/dataobjects.xsd">
+	<dataObject name="codeTSAgent" label="Agency Information" module="sunapsis">
+		<menu type="list">%description%</menu>
+		<description><![CDATA[
+			This lists the codes for agents used
+			by the institution.
+		]]></description>
+		<primaryKey>recnum</primaryKey>
+		<foreignKey dataObject="codeTSAgent" key="recnum"/>
+		<datums>
+			<datum key="code" label="Code" type="label" length="5" />
+			<!--Description column hard coded as display value in drop downs-->
+			<datum key="description" label="Name" type="string" length="150" data="required" sort="asc"/>
+			<datum key="website" label="Website" type="string" length="150" data="required" />
+			<datum key="source" label="Where did they here about us?" type="string" length="300" />
+			<datum key="primaryCountryCode" label="Primary Recruiting Country" type="string" length="5" >
+				<reference dataObject="viewCodeCompleteCountryList" valueKey="code" displayKey="description"/>
+			</datum>
+			<datum key="secondaryCountryCode" label="Secondary Recruiting Country" type="string" length="5" >
+				<reference dataObject="viewCodeCompleteCountryList" valueKey="code" displayKey="description"/>
+			</datum>
+			<datum key="primaryPhone" label="Primary Phone" type="string" length="50" data="required" />
+			<datum key="secondaryPhone" label="Secondary Phone" type="string" length="50" />
+			<datum key="primaryEmail" label="Primary Email" type="string" length="50" data="required" />
+			<datum key="secondaryEmail" label="Secondary Email" type="string" length="50"/>
+			<datum key="fax" label="Fax" type="string" length="50"/>
+			<datum key="isActiveFlag" label="Is Active" type="boolean"/>
+			<datum key="isAccreditedFlag" label="Is AIRC Accredited" type="boolean"/>
+			<datum key="address1" label="Address 1" type="string" length="50" data="required" />
+			<datum key="address2" label="Address 2" type="string" length="50" />
+			<datum key="city" label="City" type="string" length="50" data="required" />
+			<datum key="state" label="State" type="string" length="50" />
+			<datum key="postal" label="Postal" type="string" length="50" />
+			<datum key="countryCode" label="Country" type="string" length="5" data="required">
+				<reference dataObject="viewCodeCompleteCountryList" valueKey="code" displayKey="description"/>
+			</datum>
+			<datum key="notes" label="Notes" type="memo" />
+			<datum key="username" label="Updated By" type="label" length="20" >
+				<reference dataObject="viewCodeIOfficeUsers" valueKey="code" displayKey="description"/>
+			</datum>
+			<datum key="recnum" label=" " type="integer" display="false" />
+			<datum key="datestamp" label="Updated On" type="datestamp" />
+		</datums>
+		<constraints>
+			<constraint type="CreateCodeConstraint" key="code">
+				<constant>A</constant>
+			</constraint>
+			<constraint type="AssignUsernameConstraint" key="username"/>
+		</constraints>
+	</dataObject>
+	<dataObject name="codeTSAgentContactType" label="Agent Contact Type" module="sunapsis">
+		<menu type="list">%description% (%code%)</menu>
+		<description><![CDATA[
+			Specifies the type of contact an agent is to their organization.
+		]]></description>
+		<primaryKey>recnum</primaryKey>
+		<foreignKey dataObject="codeTSAgentContactType" key="recnum"/>
+		<datums>
+			<datum key="code" label="Code" type="string" length="5" data="required" />
+			<datum key="description" label="Description" type="string" length="50" data="required"/>
+			<datum key="recnum" label=" " type="integer" display="false" />
+		</datums>
+		<constraints/>
+	</dataObject>
+</data>
